@@ -1,5 +1,8 @@
 CREATE DATABASE questions;
 \c questions
+CREATE SCHEMA questions;
+SET search_path TO questions;
+
 
 DROP TABLE IF EXISTS products;
 DROP TABLE IF EXISTS questions;
@@ -70,5 +73,5 @@ CSV HEADER;
 
 
 /*  Execute this file from the command line by typing:
- *    psql -U rootname < src/schema.sql
+ *    psql -U rootname < src/server/db/schema.sql
  *  to create the database and the tables.*/
