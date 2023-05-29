@@ -4,7 +4,8 @@ import sequelize from '../db/database';
 const answers = sequelize.define('answers', {
   'id': {
     type: DataTypes.INTEGER,
-    allowNull: false
+    allowNull: false,
+    primaryKey: true
   },
   'question_id': {
     type: DataTypes.INTEGER,

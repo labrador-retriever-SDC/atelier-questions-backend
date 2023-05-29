@@ -1,7 +1,7 @@
 import { DataTypes} from 'sequelize'
 import sequelize from '../db/database.js';
 
-const photos = sequelize.define('questions.photos', {
+const photos = sequelize.define('photos', {
   'id': {
     type: DataTypes.INTEGER,
     allowNull: false,
