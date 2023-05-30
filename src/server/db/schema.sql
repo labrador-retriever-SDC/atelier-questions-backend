@@ -37,7 +37,9 @@ CREATE TABLE photos (
   FOREIGN KEY (answer_id) REFERENCES answers (id)
 );
 
-CREATE INDEX questions_index_0 ON questions (question_id);
+CREATE INDEX IF NOT EXISTS products_index_0 ON questions.questions (product_id);
+CREATE INDEX IF NOT EXISTS questions_index_0 ON questions.answers (question_id);
+CREATE INDEX IF NOT EXISTS answer_index_0 ON questions.photos (answer_id);
 
 COPY questions (question_id, product_id, question_body, question_date, asker_name, asker_email, reported, question_helpfulness)
 FROM '/Users/evan/sdc/atelier-questions-backend/dist/SDC_questions.csv'

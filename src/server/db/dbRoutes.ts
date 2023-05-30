@@ -1,6 +1,63 @@
 import { QueryTypes } from "sequelize";
 import sequelize from "./database.js";
 
+// export const getQuestions = async (product_id : number) => sequelize.query(
+//   `SELECT questions.questions.*, json_build_object('id', questions.answers.id, 'body', questions.answers.body, 'date', questions.answers.date, 'answer_name', questions.answers.answerer_name, 'helpfulness', questions.answers.helpfulness, 'reported', questions.answers.reported, 'photos', questions.photos.url) as answers FROM questions.questions
+//     FULL OUTER JOIN questions.answers ON questions.questions.question_id = questions.answers.question_id
+//     FULL OUTER JOIN questions.photos ON questions.photos.answer_id = questions.answers.id
+//     WHERE questions.questions.product_id = ${product_id}
+//     `,
+//   {type: QueryTypes.SELECT})
+//   .then((questions) => {
+//     console.log(questions);
+//     const result = {} as any;
+//     result.product_id = product_id;
+//     const mainObj = {} as any;
+//     questions.forEach((question : any) => {
+//       if (mainObj[question.question_id] !== undefined) {
+//         if (mainObj[question.question_id].answers[question.answers.id] !== undefined) {
+//           const url = question.answers.photos;
+//           mainObj[question.question_id].answers[question.answers.id].photos.push(url);
+//         } else {
+//           mainObj[question.question_id].answers[question.answers.id] = question.answers;
+//           mainObj[question.question_id].answers[question.answers.id].date = new Date(JSON.parse(question.answers.date)).toString();
+
+//           let photos = [] as any;
+//           if (question.answers.photos) {
+//             photos.push(question.answers.photos);
+//             mainObj[question.question_id].answers[question.answers.id].photos = photos;
+//           } else {
+//             mainObj[question.question_id].answers[question.answers.id].photos = [];
+//           }
+//         }
+//       } else {
+//         const questionObj = {} as any;
+//         questionObj.question_id = question.question_id;
+//         questionObj.question_body = question.question_body;
+//         questionObj.question_date = new Date(JSON.parse(question.question_date)).toString();
+//         questionObj.asker_name = question.asker_name;
+//         questionObj.question_helpfulness = question.question_helpfulness;
+//         questionObj.reported = question.reported;
+//         questionObj.answers = {};
+//         questionObj.answers[question.answers.id] = question.answers;
+//         questionObj.answers[question.answers.id].date = new Date(JSON.parse(question.answers.date)).toString();
+
+//         let photos = [] as any;
+//         if (question.answers.photos) {
+//           photos.push(question.answers.photos);
+//           questionObj.answers[question.answers.id].photos = photos;
+//         } else {
+//           questionObj.answers[question.answers.id].photos = [];
+//         }
+//         mainObj[question.question_id] = questionObj;
+//       }
+//     });
+//     const results = Object.values(mainObj);
+//     result.results = results;
+//     return result;
+//   })
+//   .catch((err) => console.log(err));
+
 export const getQuestions = async (product_id : number) => sequelize.query(
   `SELECT * FROM questions.questions
     FULL OUTER JOIN questions.answers ON questions.questions.question_id = questions.answers.question_id
