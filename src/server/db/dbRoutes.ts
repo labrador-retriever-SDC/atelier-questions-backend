@@ -1,8 +1,5 @@
-import { Sequelize, QueryTypes } from "sequelize";
+import { QueryTypes } from "sequelize";
 import sequelize from "./database.js";
-import questions from "../models/questions.js"
-import answers from "../models/answers.js"
-import photos from "../models/photos.js"
 
 export const getQuestions = async (product_id : number) => sequelize.query(
   `SELECT * FROM questions.questions

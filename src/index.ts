@@ -11,10 +11,10 @@ app.use(cors());
 app.use(express.urlencoded({extended: true}));
 
 //test database connection
-sequelize.authenticate()
+// sequelize.authenticate()
 
 // Routes
-app.get('/qa/questions/:product_id/', (req, res) => {
+app.get('/qa/questions/:product_id', (req, res) => {
   const productID = Number.parseInt(req.params.product_id);
   getQuestions(productID)
     .then((data) => res.send(data));
@@ -78,3 +78,5 @@ try {
 } catch (error) {
   console.log('Error ocurred')
 }
+
+export default app;
