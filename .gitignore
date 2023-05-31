@@ -4,3 +4,5 @@ node_modules
 dist/
 coverage/
 first.txt.html
+second.txt.html
+second.txt

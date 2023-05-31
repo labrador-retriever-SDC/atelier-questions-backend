@@ -62,7 +62,7 @@ export const getQuestions = async (product_id : number) => sequelize.query(
   `SELECT * FROM questions.questions
     FULL OUTER JOIN questions.answers ON questions.questions.question_id = questions.answers.question_id
     FULL OUTER JOIN questions.photos ON questions.photos.answer_id = questions.answers.id
-    WHERE questions.questions.product_id = ${product_id}
+    WHERE questions.questions.product_id = ${product_id} and questions.questions.reported = 0
     `,
   {type: QueryTypes.SELECT})
   .then((questions) => {
@@ -97,7 +97,7 @@ export const getQuestions = async (product_id : number) => sequelize.query(
         questionObj.question_date = new Date(JSON.parse(question.question_date)).toString();
         questionObj.asker_name = question.asker_name;
         questionObj.question_helpfulness = question.question_helpfulness;
-        questionObj.reported = question.reported;
+        questionObj.reported = false;
         questionObj.answers = {};
         questionObj.answers[question.id] = {};
         questionObj.answers[question.id].id = question.id;
