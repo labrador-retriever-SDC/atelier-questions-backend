@@ -73,7 +73,7 @@ app.put('/qa/answers/:answer_id/report', (req, res) => {
   res.send('reported answer');
 })
 
-app.get('/loaderio-1b8fa58270656fd92ef9fccc206a6c22', (req, res) => res.send('loaderio-d07120ba7a9e99cf54edf563521476bc'))
+app.get('/loaderio-1b8fa58270656fd92ef9fccc206a6c22', (req, res) => res.send('loaderio-1b8fa58270656fd92ef9fccc206a6c22'))
 
 try {
   app.listen(dbPort, () => {console.log('Server listening on port', dbPort)})
