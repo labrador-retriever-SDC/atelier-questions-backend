@@ -1,6 +1,5 @@
 # atelier-backend
-Building a faster solution for e commerce brands.
-Certainly! Here's the same content formatted for a README.md file:
+Developed an enhanced backend server and modernized database infrastructure for an established legacy system.
 
 ## Table of Contents
 
